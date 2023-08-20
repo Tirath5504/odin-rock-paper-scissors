@@ -6,6 +6,10 @@ function getComputerChoice() {
     return choices[randInt];
 }
 
+/* Testing getComputerChoice() function
+    console.log(getComputerChoice());
+*/
+
 function game(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
@@ -27,6 +31,13 @@ function game(playerSelection, computerSelection) {
         return "Draw!";
     }
 }
+
+/* Testing game() function
+const playerSelection = "Rock";
+const computerSelection = getComputerChoice();
+console.log(computerSelection);
+console.log(game(playerSelection, computerSelection));
+*/
 
 
 
