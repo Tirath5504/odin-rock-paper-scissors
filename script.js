@@ -39,6 +39,11 @@ console.log(computerSelection);
 console.log(game(playerSelection, computerSelection));
 */
 
+function mainProgram() {
+    for (let i = 1; i <= 5; i++) {
+        const playerSelection = prompt("Enter your choice", "Rock");
+        console.log(game(playerSelection, getComputerChoice()));
+    }
+}
 
-
-
+mainProgram();
