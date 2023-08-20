@@ -27,6 +27,13 @@ function game(playerSelection, computerSelection) {
     ) {
         return "You Win!";
     }
+    else if (
+        (playerSelection.toLowerCase() != "rock") && 
+        (playerSelection.toLowerCase() != "paper") &&
+        (playerSelection.toLowerCase() != "scissor")
+    ) {
+        return "Incorrect input: Enter 'rock', 'paper' or 'scissor'!";
+    }
     else {
         return "Draw!";
     }
