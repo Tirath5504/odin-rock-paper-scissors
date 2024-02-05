@@ -1,14 +1,11 @@
-console.log("Tirath");
+let computerScore = 0
+let userScore = 0
 
 function getComputerChoice() {
     const randInt = Math.floor(Math.random() * 3) + 0;
     const choices = ["Rock", "Paper", "Scissor"];
     return choices[randInt];
 }
-
-/* Testing getComputerChoice() function
-    console.log(getComputerChoice());
-*/
 
 function game(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -39,18 +36,39 @@ function game(playerSelection, computerSelection) {
     }
 }
 
-/* Testing game() function
-const playerSelection = "Rock";
-const computerSelection = getComputerChoice();
-console.log(computerSelection);
-console.log(game(playerSelection, computerSelection));
-*/
+document.querySelector("#rock").addEventListener("click", () => playRound("rock"))
+paper = document.querySelector("#paper").addEventListener("click", () => playRound("paper"))
+scissor = document.querySelector("#scissor").addEventListener("click", () => playRound("scissor"))
 
-function mainProgram() {
-    for (let i = 1; i <= 5; i++) {
-        const playerSelection = prompt("Enter your choice", "Rock");
-        console.log(game(playerSelection, getComputerChoice()));
-    }
+const result = document.querySelector("#result")
+const score = document.querySelector("#score")
+const winner = document.querySelector("#winner")
+
+function playRound(player)
+{
+    if (!winner.textContent)
+    {
+        const computerChoice = getComputerChoice()
+        const res = game(player, computerChoice)
+
+        if (res == "You Win!")
+        {
+            userScore += 1
+            result.textContent = "You win this round!"
+        }
+        else if (res == "You Lose!")
+        {
+            computerScore += 1
+            result.textContent = "You lose this round!"
+        }
+        else
+            result.textContent = "Draw!"
+
+        score.textContent = `User Score: ${userScore}, Computer Score: ${computerScore}`
+
+        if (userScore == 5)
+            winner.textContent = "User Wins! :)"
+        else if (computerScore == 5)
+            winner.textContent = "Computer Wins! :("
+    }   
 }
-
-mainProgram();
